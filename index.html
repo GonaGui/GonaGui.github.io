@@ -28,6 +28,7 @@
             background: #121212;
             position: relative;
             z-index: 10;
+            margin-top: -150px;
         }
 
         .w3-wide {
@@ -92,7 +93,7 @@
             position: relative;
             display: inline-block;
         }
-
+        
         .project-img {
             width: 100%;
             height: 100%;
@@ -152,6 +153,88 @@
         .footer-icons i {
             font-size: 40px;
             margin: 0 10px; 
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+            gap: 20px;
+            justify-items: center; /* center cards in their grid cells */
+            padding: 20px;
+            background-color: #1e1e1e;
+            border: 2px solid #333;
+            border-radius: 12px;
+            max-width: 550px; /* ensures it won't stretch too wide */
+            margin: 0 auto 30px; /* center container with bottom margin */
+        }
+
+        .card-container-title {
+            grid-column: 1 / -1; /* span all columns */
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .card {
+            background-color: #2a2a2a;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            max-width: 150px; /* optional: card size limit */
+        }
+
+        .card img {
+            width: 48px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            margin: 0;
+            font-weight: bold;
+            color: #F7F7F7;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 800px) {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 per row */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .card-container {
+                grid-template-columns: 1fr; /* 1 per row */
+            }
+        }
+
+        .toggle-tech-btn {
+            grid-column: 1 / -1; /* span all columns */
+            justify-self: center; /* center within that row */
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #ff4dc1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .toggle-tech-btn:hover {
+            background-color: #e03eb2;
         }
 
 
@@ -423,148 +506,124 @@
 
 
         <!-- SKILLS -->
-        <p class="w3-large w3-center w3-padding-16">Known Coding Languages:</p>
 
-        <div class="w3-row-padding w3-center">
+        <div class="card-container">
+            <h3 class="card-container-title">Known Coding Languages:</h3>
 
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                         alt="C++" style="width:48px;">
-                    <p><strong>C++</strong></p>
-                </div>
+            <!-- C++ -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                <p><strong>C++</strong></p>
             </div>
 
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
-                         alt="C" style="width:48px;">
-                    <p><strong>C</strong></p>
-                </div>
+            <!-- C -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                <p><strong>C</strong></p>
             </div>
 
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-                         alt="C#" style="width:48px;">
-                    <p><strong>C#</strong></p>
-                </div>
+            <!-- C# -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+                <p><strong>C#</strong></p>
             </div>
 
-        </div>
-
-        <div class="w3-row-padding w3-center">
-
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                         alt="Python" style="width:48px;">
-                    <p><strong>Python</strong></p>
-                </div>
+            <!-- Python -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <p><strong>Python</strong></p>
             </div>
 
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg"
-                         alt="Lua" style="width:48px;">
-                    <p><strong>Lua</strong></p>
-                </div>
+            <!-- Lua -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" alt="Lua">
+                <p><strong>Lua</strong></p>
             </div>
 
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg"
-                         alt="GLSL" style="width:48px;">
-                    <p><strong>GLSL</strong></p>
-                </div>
+            <!-- GLSL -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg" alt="GLSL">
+                <p><strong>GLSL</strong></p>
             </div>
 
         </div>
 
-        <p class="w3-large w3-center w3-padding-16">Tech Stack:</p>
-
-        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+        <div class="card-container" id="techStackContainer">
+            <h3 class="card-container-title">Tech Stack:</h3>
 
             <!-- Unreal Engine 5 -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine" style="width:48px;">
-                    <p><strong>Unreal Engine 5</strong></p>
-                </div>
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
+                <p><strong>Unreal Engine 5</strong></p>
+            </div>
+
+            <!-- Unity -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity">
+                <p><strong>Unity</strong></p>
+            </div>
+
+            <!-- HackNPlan -->
+            <div class="card">
+                <img src="photos/hacknplan.png" alt="HackNPlan">
+                <p><strong>HackNPlan</strong></p>
             </div>
 
             <!-- Visual Studio -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio" style="width:48px;">
-                    <p><strong>Visual Studio</strong></p>
-                </div>
-            </div>
-
-            <!-- Perforce -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="photos/perforce.svg" alt="Perforce" style="width:48px;">
-                    <p><strong>Perforce</strong></p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
-
-            <!-- HackNPlan -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="photos/hacknplan.png" alt="HackNPlan" style="width:48px;">
-                    <p><strong>HackNPlan</strong></p>
-                </div>
-            </div>
-
-            <!-- JetBrains Rider -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="Rider" style="width:48px;">
-                    <p><strong>Rider</strong></p>
-                </div>
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                <p><strong></strong>Visual Studio</p>
             </div>
 
             <!-- Visual Studio Code -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" style="width:48px;">
-                    <p><strong>VS Code</strong></p>
-                </div>
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
+                <p><strong>Visual Studio Code</strong></p>
             </div>
 
-        </div>
-
-        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
-
-            <!-- Photoshop -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" style="width:48px;">
-                    <p><strong>Photoshop</strong></p>
-                </div>
+            <!-- JetBrains Rider -->
+            <div class="card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="JetBrains Rider">
+                <p><strong>Rider</strong></p>
             </div>
 
-            <!-- Blender -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" alt="Blender" style="width:48px;">
-                    <p><strong>Blender</strong></p>
-                </div>
+            <!-- Perforce -->
+            <div class="card extra-card" style="display:none;">
+                <img src="photos/perforce.svg" alt="Perforce">
+                <p><strong>Perforce</strong></p>
             </div>
 
             <!-- Github -->
-            <div class="w3-third w3-padding">
-                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github" style="width:48px;">
-                    <p><strong>Github</strong></p>
-                </div>
+            <div class="card extra-card" style="display:none;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                <p><strong>Github</strong></p>
             </div>
 
+            <!-- CMake -->
+            <div class="card extra-card" style="display:none;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg" alt="CMake">
+                <p><strong>CMake</strong></p>
+            </div>
+
+            <!-- Vulkan -->
+            <div class="card extra-card" style="display:none;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vulkan/vulkan-original.svg" alt="Vulkan">
+                <p><strong>Vulkan</strong></p>
+            </div>
+
+            <!-- Photoshop -->
+            <div class="card extra-card" style="display:none;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
+                <p><strong>Photoshop</strong></p>
+            </div>
+
+            <!-- Blender -->
+            <div class="card extra-card" style="display:none;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" alt="Blender">
+                <p><strong>Blender</strong></p>
+            </div>
+
+            <button class="toggle-tech-btn">▼ Show More</button>
         </div>
 
     </div>
@@ -650,6 +709,17 @@
                 document.body.classList.remove('modal-open');
             }
         }
+
+        document.querySelectorAll('.toggle-tech-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const container = button.closest('.card-container');
+                const extras = container.querySelectorAll('.extra-card');
+                const isHidden = extras[0].style.display === 'none';
+
+                extras.forEach(card => card.style.display = isHidden ? 'flex' : 'none');
+                button.textContent = isHidden ? '▲ Show Less' : '▼ Show More';
+            });
+        });
 
     </script>
 
