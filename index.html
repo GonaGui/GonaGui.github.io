@@ -13,11 +13,21 @@
             font-family: "Lato", sans-serif;
         }
 
-        body, html {
-            height: 100%;
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
             color: #F7F7F7;
             line-height: 1.8;
-            background-color: #121212;
+            background: #121212;
+            background-attachment: fixed;
+            background-size: cover; /* ensures it stretches */
+        }
+
+        footer {
+            background: #121212;
+            position: relative;
+            z-index: 10;
         }
 
         .w3-wide {
@@ -131,6 +141,8 @@
             color: #F7F7F7;
             padding: 20px;
             border-radius: 10px;
+            padding-bottom: 60px;
+            padding-top: 20px;
         }
 
         body.modal-open {
@@ -205,23 +217,23 @@
 
         </div>
         <!--<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">14+</span><br>
-            Partners
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">55+</span><br>
-            Projects Done
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">89+</span><br>
-            Happy Clients
-          </div>
-          <div class="w3-quarter w3-section">
-            <span class="w3-xlarge">150+</span><br>
-            Meetings
-          </div>
-        </div>-->
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">14+</span><br>
+        Partners
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">55+</span><br>
+        Projects Done
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">89+</span><br>
+        Happy Clients
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">150+</span><br>
+        Meetings
+      </div>
+    </div>-->
         <!-- Second Parallax Image with Portfolio Text -->
         <div class="bgimg-2 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
@@ -284,7 +296,7 @@
                 <div class="w3-col m6 w3-padding">
                     <div class="project-image-container">
                         <span class="project-tag">Solo Project</span>
-                        <img src="" alt="Custom 2D Engine" class="project-img">
+                        <img src="photos/CustomGameEngine.png" alt="Custom 2D Engine" class="project-img">
                         <div class="project-overlay"><p>A lightweight lib engine for simple 2D games</p></div>
                     </div>
                 </div>
@@ -301,8 +313,10 @@
                 <span class="w3-button w3-display-topright" onclick="closeModal(event, 'modalProject1')">&times;</span>
                 <h2>Beats from the Deep</h2>
                 <h3>Overview</h3>
-                <p>Beats from the deep is a rythm game where you have to hit notes on beat to defeat a cthullu like boss. It can be played with up to 4 players or by yourself. Each character has their own unique track with unique beatmaps.
-                It was made by a team of 6 students for the Game Projects course in DAE Howest.</p>
+                <p>
+                    Beats from the deep is a rythm game where you have to hit notes on beat to defeat a cthullu like boss. It can be played with up to 4 players or by yourself. Each character has their own unique track with unique beatmaps.
+                    It was made by a team of 6 students for the Game Projects course in DAE Howest.
+                </p>
 
                 <img src="photos/BeatsFromTheDeep.png" style="width:100%; margin-bottom:15px;">
 
@@ -347,14 +361,69 @@
                 <p>The goal of creating a vertical slice was completed as this project showcases what the moment to moment gameplay of this game might be like. It was submitted to a couple competitions such as the Rookies. And was graded well within the course.</p>
 
                 <h3>Tech Stack</h3>
-                <p>Unreal Engine 5, C++, Perforce, HackNPlan.</p>
+                <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+
+                    <!-- Unreal Engine 5 -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine" style="width:48px;">
+                            <p><strong>Unreal Engine 5</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- C++ -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" style="width:48px;">
+                            <p><strong>C++</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Perforce -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="photos/perforce.svg" alt="Perforce" style="width:48px;">
+                            <p><strong>Perforce</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+
+                    <!-- HackNPlan -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="photos/hacknplan.png" alt="HackNPlan" style="width:48px;">
+                            <p><strong>HackNPlan</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- JetBrains Rider -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="Rider" style="width:48px;">
+                            <p><strong>Rider</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Visual Studio -->
+                    <div class="w3-third w3-padding">
+                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio" style="width:48px;">
+                            <p><strong>Visual Studio</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
 
 
         <!-- SKILLS -->
-        <p class="w3-large w3-center w3-padding-16">Programming Languages:</p>
+        <p class="w3-large w3-center w3-padding-16">Known Coding Languages:</p>
 
         <div class="w3-row-padding w3-center">
 
@@ -411,7 +480,92 @@
             </div>
 
         </div>
-        <!-- !SKILLS -->
+
+        <p class="w3-large w3-center w3-padding-16">Tech Stack:</p>
+
+        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+
+            <!-- Unreal Engine 5 -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine" style="width:48px;">
+                    <p><strong>Unreal Engine 5</strong></p>
+                </div>
+            </div>
+
+            <!-- Visual Studio -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio" style="width:48px;">
+                    <p><strong>Visual Studio</strong></p>
+                </div>
+            </div>
+
+            <!-- Perforce -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="photos/perforce.svg" alt="Perforce" style="width:48px;">
+                    <p><strong>Perforce</strong></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+
+            <!-- HackNPlan -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="photos/hacknplan.png" alt="HackNPlan" style="width:48px;">
+                    <p><strong>HackNPlan</strong></p>
+                </div>
+            </div>
+
+            <!-- JetBrains Rider -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="Rider" style="width:48px;">
+                    <p><strong>Rider</strong></p>
+                </div>
+            </div>
+
+            <!-- Visual Studio Code -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" style="width:48px;">
+                    <p><strong>VS Code</strong></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+
+            <!-- Photoshop -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" style="width:48px;">
+                    <p><strong>Photoshop</strong></p>
+                </div>
+            </div>
+
+            <!-- Blender -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" alt="Blender" style="width:48px;">
+                    <p><strong>Blender</strong></p>
+                </div>
+            </div>
+
+            <!-- Github -->
+            <div class="w3-third w3-padding">
+                <div class="w3-card w3-round-large w3-dark-grey w3-padding">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github" style="width:48px;">
+                    <p><strong>Github</strong></p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -427,7 +581,7 @@
 
 
     <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <footer class="w3-center w3-black w3-padding-64 w3-hover-opacity-off">
         <a href="#home" class="w3-button w3-light-grey">
             <i class="fa fa-arrow-up w3-margin-right"></i>To the top
         </a>
@@ -484,18 +638,19 @@
         }
 
         function openModal(id) {
-            document.getElementById(id).style.display = 'block';
+            const modal = document.getElementById(id);
+            modal.style.display = 'block';
             document.body.classList.add('modal-open');
         }
 
         function closeModal(event, id) {
             const modal = document.getElementById(id);
-
             if (event.target.classList.contains('w3-modal') || event.target.tagName === 'SPAN') {
                 modal.style.display = 'none';
                 document.body.classList.remove('modal-open');
             }
         }
+
     </script>
 
 </body>
