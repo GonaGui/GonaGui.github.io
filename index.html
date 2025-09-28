@@ -76,10 +76,11 @@
 
         .project-image-container {
             width: 100%;
-            height: 500px; 
+            height: 500px;
             overflow: hidden;
-            position: relative;
             border-radius: 8px;
+            position: relative;
+            display: inline-block;
         }
 
         .project-img {
@@ -105,6 +106,20 @@
 
         .project-image-container:hover .project-overlay {
             opacity: 1;
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff4dc1;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .w3-content {
@@ -223,15 +238,17 @@
                 <!-- Project Card -->
                 <div class="w3-col m6 w3-padding" onclick="openModal('modalProject1')">
                     <div class="project-image-container">
+                        <span class="project-tag">Group Project</span>
                         <img src="photos/BeatsFromTheDeep.png" alt="Beats from the Deep" class="project-img">
                         <div class="project-overlay">
-                            <p>Rhythm-based game with boss fights</p>
+                            <p>Couch co-op Rythm game made in Unreal</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="w3-col m6 w3-padding">
                     <div class="project-image-container">
+                        <span class="project-tag">Group Project</span>
                         <img src="photos/FloppyBirds.png" alt="Floppy Birds" class="project-img">
                         <div class="project-overlay">
                             <p>A Retro game for the NES made in Assembly 6502</p>
@@ -241,6 +258,7 @@
 
                 <div class="w3-col m6 w3-padding">
                     <div class="project-image-container">
+                        <span class="project-tag">Solo Project</span>
                         <img src="photos/VulkanRenderer.png" alt="Vulkan Renderer" class="project-img">
                         <div class="project-overlay">
                             <p>Custom Vulkan renderer</p>
@@ -250,6 +268,7 @@
 
                 <div class="w3-col m6 w3-padding">
                     <div class="project-image-container">
+                        <span class="project-tag">Solo Project</span>
                         <img src="photos/DualRasterizer_DirectX.png" alt="Dual Rasterizer" class="project-img">
                         <div class="project-overlay">
                             <p>Software and Hardware Dual Rasterizer</p>
@@ -264,6 +283,7 @@
             <div class="w3-row" style="display: flex; justify-content: center;">
                 <div class="w3-col m6 w3-padding">
                     <div class="project-image-container">
+                        <span class="project-tag">Solo Project</span>
                         <img src="" alt="Custom 2D Engine" class="project-img">
                         <div class="project-overlay"><p>A lightweight lib engine for simple 2D games</p></div>
                     </div>
