@@ -280,17 +280,54 @@
             <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
                 <span class="w3-button w3-display-topright" onclick="closeModal(event, 'modalProject1')">&times;</span>
                 <h2>Beats from the Deep</h2>
+                <h3>Overview</h3>
+                <p>Beats from the deep is a rythm game where you have to hit notes on beat to defeat a cthullu like boss. It can be played with up to 4 players or by yourself. Each character has their own unique track with unique beatmaps.
+                It was made by a team of 6 students for the Game Projects course in DAE Howest.</p>
+
                 <img src="photos/BeatsFromTheDeep.png" style="width:100%; margin-bottom:15px;">
-                <p>
-                    An underwater rhythm game where the player pilots a submarine and faces
-                    bosses that attack in sync with the music. Features include:
-                </p>
+
+                <h3>Team: </h3>
+                <p>Gonçalo Guilherme (Programmer)</p>
+                <p>Bouke Weel (Programmer)</p>
+                <p>Missy Cooper (Artist)</p>
+                <p>Ieva Sucila (Artist)</p>
+                <p>Kwinten Hermanns (Tech Artist)</p>
+                <p>Matthias Peene (Sound)</p>
+
+                <h3>Some of my Contributions</h3>
                 <ul>
-                    <li>Custom note spawning system</li>
-                    <li>Boss attack patterns synced to beats</li>
-                    <li>Hold-note mechanics with smooth input</li>
+                    <li>Bound and created the player Input</li>
+                    <li>Added the necessary logic for "hold notes", "dodge notes" and "attack notes"</li>
+                    <li>Made menu logic for main menu including player selection screen</li>
+                    <li>Added the animation logic for the tentacles and their attack animation</li>
+                    <li>And more...</li>
                 </ul>
-                <p><b>Tech:</b> Unreal Engine 5, C++</p>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li>Built in Unreal Engine 5 with C++ and Blueprints for rapid iteration.</li>
+                    <li>
+                        Core gameplay structured around a beat-synchronization system that drives
+                        note spawning, enemy attacks, and player feedback.
+                    </li>
+                    <li>Supports up to 4 local players using Unreal’s Enhanced Input System.</li>
+                    <li>
+                        Boss behavior and animations triggered by synced animation blueprints
+                        tied to the beat system.
+                    </li>
+                    <li>UI flow handled with Blueprints (menus, character selection, results screen).</li>
+                </ul>
+
+                <h3>Challenges & Solutions</h3>
+                <ul>
+                    <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+                </ul>
+
+                <h3>Outcome</h3>
+                <p>The goal of creating a vertical slice was completed as this project showcases what the moment to moment gameplay of this game might be like. It was submitted to a couple competitions such as the Rookies. And was graded well within the course.</p>
+
+                <h3>Tech Stack</h3>
+                <p>Unreal Engine 5, C++, Perforce, HackNPlan.</p>
             </div>
         </div>
 
