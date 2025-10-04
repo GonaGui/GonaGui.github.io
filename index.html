@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body, h1, h2, h3, h4, h5, h6 {
             font-family: "Lato", sans-serif;
@@ -29,6 +29,27 @@
             position: relative;
             z-index: 10;
             margin-top: -150px;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-icons i {
+            font-size: 40px;
+            margin: 0 10px;
+        }
+
+        .modal-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-icons i {
+            font-size: 40px; /* match footer size */
+            margin: 0 10px; /* optional spacing */
         }
 
         .w3-wide {
@@ -147,28 +168,35 @@
         }
 
         body.modal-open {
-            overflow: hidden;
+            overflow: hidden; /* prevent scrolling on the body */
         }
 
-        .footer-icons i {
-            font-size: 40px;
-            margin: 0 10px; 
+        .w3-modal {
+            position: fixed; /* full viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* allow scrolling inside the modal */
+            z-index: 1000;
         }
 
         .card-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
-            justify-items: center; /* center cards in their grid cells */
+            justify-content: center; /* centers incomplete last row */
             padding: 20px;
             background-color: #1e1e1e;
             border: 2px solid #333;
             border-radius: 12px;
-            max-width: 550px; /* ensures it won't stretch too wide */
-            margin: 0 auto 30px; /* center container with bottom margin */
+            max-width: 550px; /* ensures at most 3 cards of 150px fit */
+            margin: 0 auto 30px;
+            box-sizing: border-box;
         }
 
         .card-container-title {
+            flex: 0 0 100%;
             grid-column: 1 / -1; /* span all columns */
             text-align: center;
             font-size: 1.5rem;
@@ -178,6 +206,7 @@
         }
 
         .card {
+            flex: 0 0 150px;
             background-color: #2a2a2a;
             border-radius: 12px;
             padding: 16px;
@@ -187,8 +216,7 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%;
-            max-width: 150px; /* optional: card size limit */
+            width: 150px;
         }
 
         .card img {
@@ -221,6 +249,7 @@
         }
 
         .toggle-tech-btn {
+            flex: 0 0 100%;
             grid-column: 1 / -1; /* span all columns */
             justify-self: center; /* center within that row */
             margin-top: 10px;
@@ -331,7 +360,7 @@
             <div class="w3-row-padding w3-center">
 
                 <!-- Project Card -->
-                <div class="w3-col m6 w3-padding" onclick="openModal('modalProject1')">
+                <div class="w3-col m6 w3-padding" onclick="openModal('ModalBeatsFromTheDeep')">
                     <div class="project-image-container">
                         <span class="project-tag">Group Project</span>
                         <img src="photos/BeatsFromTheDeep.png" alt="Beats from the Deep" class="project-img">
@@ -341,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="w3-col m6 w3-padding">
+                <div class="w3-col m6 w3-padding" onclick="openModal('ModalFloppyBirds')">
                     <div class="project-image-container">
                         <span class="project-tag">Group Project</span>
                         <img src="photos/FloppyBirds.png" alt="Floppy Birds" class="project-img">
@@ -351,7 +380,7 @@
                     </div>
                 </div>
 
-                <div class="w3-col m6 w3-padding">
+                <div class="w3-col m6 w3-padding" onclick="openModal('ModalVulkanRenderer')">
                     <div class="project-image-container">
                         <span class="project-tag">Solo Project</span>
                         <img src="photos/VulkanRenderer.png" alt="Vulkan Renderer" class="project-img">
@@ -361,7 +390,7 @@
                     </div>
                 </div>
 
-                <div class="w3-col m6 w3-padding">
+                <div class="w3-col m6 w3-padding" onclick="openModal('ModalDualRasterizer')">
                     <div class="project-image-container">
                         <span class="project-tag">Solo Project</span>
                         <img src="photos/DualRasterizer_DirectX.png" alt="Dual Rasterizer" class="project-img">
@@ -376,7 +405,7 @@
             </div>
 
             <div class="w3-row" style="display: flex; justify-content: center;">
-                <div class="w3-col m6 w3-padding">
+                <div class="w3-col m6 w3-padding" onclick="openModal('ModalCustomEngine')">
                     <div class="project-image-container">
                         <span class="project-tag">Solo Project</span>
                         <img src="photos/CustomGameEngine.png" alt="Custom 2D Engine" class="project-img">
@@ -390,18 +419,34 @@
 
 
         <!-- MODALS (DESCRIPTIONS OF THE PROJECTS) -->
-        <!-- Modal for Project 1 -->
-        <div id="modalProject1" class="w3-modal" onclick="closeModal(event, 'modalProject1')">
+        <!-- Modal for Beats from the Deep -->
+        <div id="ModalBeatsFromTheDeep" class="w3-modal" onclick="closeModal(event, 'ModalBeatsFromTheDeep')">
             <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
-                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'modalProject1')">&times;</span>
+                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalBeatsFromTheDeep')">&times;</span>
                 <h2>Beats from the Deep</h2>
                 <h3>Overview</h3>
                 <p>
-                    Beats from the deep is a rythm game where you have to hit notes on beat to defeat a cthullu like boss. It can be played with up to 4 players or by yourself. Each character has their own unique track with unique beatmaps.
+                    Beats from the deep is a rhythm game where you have to hit notes on beat to defeat a Cthulhu-like boss. It can be played with up to 4 players or by yourself. Each character has their own unique track with unique beatmaps.
                     It was made by a team of 6 students for the Game Projects course in DAE Howest.
                 </p>
 
                 <img src="photos/BeatsFromTheDeep.png" style="width:100%; margin-bottom:15px;">
+
+                <h3>View the source code in Github: </h3>
+
+                <div class="w3-section modal-icons">
+                    <a href="https://github.com/GonaGui/BeatsFromTheDeepSource" title="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github w3-hover-opacity"></i>
+                    </a>
+                </div>
+
+                <h3>Play demo and view DevLogs in Itch.io: </h3>
+                <div class="w3-section modal-icons">
+                    <a href="https://matthiaspeene.itch.io/beatsfromthedeep" title="Itch.io" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-itch-io w3-hover-opacity"></i>
+                    </a>
+                </div>
+
 
                 <h3>Team: </h3>
                 <p>Gonçalo Guilherme (Programmer)</p>
@@ -437,65 +482,402 @@
 
                 <h3>Challenges & Solutions</h3>
                 <ul>
-                    <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+                    <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for a hold-note pair</li>
                 </ul>
 
                 <h3>Outcome</h3>
                 <p>The goal of creating a vertical slice was completed as this project showcases what the moment to moment gameplay of this game might be like. It was submitted to a couple competitions such as the Rookies. And was graded well within the course.</p>
 
                 <h3>Tech Stack</h3>
-                <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+                <div class="card-container" id="techStackContainer">
 
                     <!-- Unreal Engine 5 -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine" style="width:48px;">
-                            <p><strong>Unreal Engine 5</strong></p>
-                        </div>
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
+                        <p><strong>Unreal Engine 5</strong></p>
                     </div>
 
                     <!-- C++ -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" style="width:48px;">
-                            <p><strong>C++</strong></p>
-                        </div>
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                        <p><strong>C++</strong></p>
                     </div>
 
                     <!-- Perforce -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="photos/perforce.svg" alt="Perforce" style="width:48px;">
-                            <p><strong>Perforce</strong></p>
-                        </div>
+                    <div class="card extra-card" style="display:none;">
+                        <img src="photos/perforce.svg" alt="Perforce">
+                        <p><strong>Perforce</strong></p>
+                    </div>
+
+                    <!-- HackNPlan -->
+                    <div class="card">
+                        <img src="photos/hacknplan.png" alt="HackNPlan">
+                        <p><strong>HackNPlan</strong></p>
+                    </div>
+
+                    <!-- JetBrains Rider -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="JetBrains Rider">
+                        <p><strong>Rider</strong></p>
+                    </div>
+
+                    <!-- Visual Studio -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                        <p><strong></strong>Visual Studio</p>
                     </div>
 
                 </div>
 
-                <div class="w3-row-padding w3-center" style="margin-bottom:30px;">
+            </div>
+        </div>
 
-                    <!-- HackNPlan -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="photos/hacknplan.png" alt="HackNPlan" style="width:48px;">
-                            <p><strong>HackNPlan</strong></p>
+        <!-- Modal for Floppy Birds -->
+        <div id="ModalFloppyBirds" class="w3-modal" onclick="closeModal(event, 'ModalFloppyBirds')">
+            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
+                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalFloppyBirds')">&times;</span>
+                <h2>Floppy Birds</h2>
+                <h3>Overview</h3>
+                <p>
+                    Floppy Birds is a co-op arcade game inspired by the smartphone classic. It can be played with up to 4 players when using the NES Four Score. It works in both emulators and in the original NES console.
+                    It was made by a team of 4 students for the Retro Games and Console class.
+                </p>
+
+                <img src="photos/FloppyBirds.png" style="width:100%; margin-bottom:15px;">
+
+                <h3>View the source code in Github: </h3>
+
+                <div class="w3-section modal-icons">
+                    <a href="https://github.com/GeleArthur/Nes_Flappingbird" title="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github w3-hover-opacity"></i>
+                    </a>
+                </div>
+
+                <h3>Team: </h3>
+                <p>Gonçalo Guilherme (Programmer)</p>
+                <p>Gilles Durnez (Programmer)</p>
+                <p>Arthur Barselaar(Programmer)</p>
+                <p>Bram Verhulst (Programmer)</p>
+
+                <h3>Some of my Contributions</h3>
+                <ul>
+                    <li>Bound and created the player Input</li>
+                    <li>Created player movement logic and faked gravity</li>
+                    <li>Made the Main screen logic and animations</li>
+                </ul>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li>The whole project was coded in Assembly 6502 on Visual Studio Code using the "ca65 Macro Assembler Language Support" plugin for better modern support for IDE and general quality of life changes.</li>
+                    <li>Supports up to 4 local players using the NES Four Score.</li>
+                </ul>
+
+                <!-- <h3>Challenges & Solutions</h3>
+      <ul>
+          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+      </ul>
+    -->
+
+                <h3>Outcome</h3>
+                <p> Me and my team managed to make the project compatible with both NES emulators and the original console. Including the FourScore in emulator and on console.</p>
+
+                <h3>Tech Stack</h3>
+                <div class="card-container" id="techStackContainer">
+
+                    <!-- Assembly 6502 -->
+                    <div class="card">
+                        <img src="photos/ASM.png" alt="Assembly 6502">
+                        <p><strong>Assembly 6502</strong></p>
+                    </div>
+
+                    <!-- Github -->
+                    <div class="card extra-card" style="display:none;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                        <p><strong>Github</strong></p>
+                    </div>
+
+                    <!-- Visual Studio Code -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
+                        <p><strong>VS Code</strong></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal for Vulkan Renderer -->
+        <div id="ModalVulkanRenderer" class="w3-modal" onclick="closeModal(event, 'ModalVulkanRenderer')">
+            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
+                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalVulkanRenderer')">&times;</span>
+                <h2>Vulkan Renderer</h2>
+                <h3>Overview</h3>
+                <p>
+                    This project is a Graphics renderer made in c++ using the Vulkan API. It was made for my Graphics Programming 2 class. (This projects uses code from the <a href="https://vulkan-tutorial.com" target="_blank" rel="noopener noreferrer">Vulkan Tutorial</a>)
+                </p>
+
+                <div class="w3-content w3-display-container" style="max-width:100%; position:relative;">
+
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase1.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            Depth Pre-Pass
                         </div>
                     </div>
 
-                    <!-- JetBrains Rider -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="Rider" style="width:48px;">
-                            <p><strong>Rider</strong></p>
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase2.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            PBR(Albedo)
                         </div>
+                    </div>
+
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase3.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            PBR(Normals)
+                        </div>
+                    </div>
+
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase4.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            PBR(Metallic Roughness)
+                        </div>
+                    </div>
+
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase5.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            HDR Light Pass
+                        </div>
+                    </div>
+
+                    <div class="mySlides" style="position:relative;">
+                        <img src="photos/FeatureShowcase6.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            Blit Pass(tone mapping)
+                        </div>
+                    </div>
+
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                </div>
+
+                <h3>View the source code in Github: </h3>
+
+                <div class="w3-section modal-icons">
+                    <a href="https://github.com/GonaGui/Vulkan-Renderer" title="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github w3-hover-opacity"></i>
+                    </a>
+                </div>
+
+                <h3>Some of the features</h3>
+                <ul>
+                    <li>Use of the Assimp library to load various 3D models/Scenes</li>
+                    <li>Dynamic Rendering in Vulkan</li>
+                    <li>As shown in the images a PBR workflow with pre depth pass</li>
+                </ul>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li>The project supports a PBR workflow with quick scene and model loading thanks to Assimp library</li>
+                    <li>It uses a realistic camera simulation for lighting with changeable settings</li>
+                </ul>
+
+                <!-- <h3>Challenges & Solutions</h3>
+      <ul>
+          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+      </ul>
+    -->
+
+                <h3>Outcome</h3>
+                <p> Despite not meeting all the goals that were set for the class and by me this project is still a fully function graphics renderer made using Vulkan API completely from scratch. The project still has many flaws and most likely would struggle to run on alot of devices due to graphics card compatability.</p>
+
+                <h3>Tech Stack</h3>
+                <div class="card-container" id="techStackContainer">
+
+                    <!-- Github -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                        <p><strong>Github</strong></p>
                     </div>
 
                     <!-- Visual Studio -->
-                    <div class="w3-third w3-padding">
-                        <div class="w3-card w3-round-large w3-dark-grey w3-padding">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio" style="width:48px;">
-                            <p><strong>Visual Studio</strong></p>
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                        <p><strong></strong>Visual Studio</p>
+                    </div>
+
+                    <!-- Vulkan -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vulkan/vulkan-original.svg" alt="Vulkan">
+                        <p><strong>Vulkan</strong></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Modal for Dual Rasterizer -->
+        <div id="ModalDualRasterizer" class="w3-modal" onclick="closeModal(event, 'ModalDualRasterizer')">
+            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
+                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalDualRasterizer')">&times;</span>
+                <h2>Dual Rasterizer</h2>
+                <h3>Overview</h3>
+                <p>
+                    This project is a Graphics renderer made in c++ using the DirectX API and a fully software one. It was made for my Graphics Programming class.
+                </p>
+
+                <div class="w3-content w3-display-container" style="max-width:100%; position:relative;">
+
+                    <div class="mySlidesRaster" style="position:relative;">
+                        <img src="photos/DualRasterizer_DirectX.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            DirectX (Hardware) Rasterizer
                         </div>
+                    </div>
+
+                    <div class="mySlidesRaster" style="position:relative;">
+                        <img src="photos/DualRasterizer_Software.png" style="width:100%">
+                        <div class="w3-display-bottommiddle w3-container w3-padding"
+                             style="background: rgba(0,0,0,0.5); color: white;">
+                            Software Rasterizer
+                        </div>
+                    </div>
+
+                    <button class="w3-button w3-black w3-display-left" onclick="plusRaster(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusRaster(1)">&#10095;</button>
+                </div>
+
+                <h3>View the source code in Github: </h3>
+
+                <div class="w3-section modal-icons">
+                    <a href="https://github.com/GonaGui/GP1-DualRasterizer" title="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github w3-hover-opacity"></i>
+                    </a>
+                </div>
+
+                <h3>Some of the features</h3>
+                <ul>
+                    <li>Use of DirectX for the Hardware Rasterizer</li>
+                    <li>Transparency support for both Hardware and Software</li>
+                    <li>Culling with clipping for Hardware and general triangle culling for Software</li>
+                    <li>It has hotkeys for a multitude of things such as cycling cull modes or turning features on or off</li>
+                </ul>
+
+                <h3>Technical Details</h3>
+                <ul>
+                    <li>The project allow for transparency in both hardware and software</li>
+                    <li>Linear Sampling for both hardware and software which allows for smoother looking textures</li>
+                </ul>
+
+                <!-- <h3>Challenges & Solutions</h3>
+      <ul>
+          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+      </ul>
+    -->
+
+                <h3>Outcome</h3>
+                <p> This project showcases the two different Rasterizers with most features being compatible in between the both of them.</p>
+
+                <h3>Tech Stack</h3>
+                <div class="card-container" id="techStackContainer">
+
+                    <!-- Github -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                        <p><strong>Github</strong></p>
+                    </div>
+
+                    <!-- Visual Studio -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                        <p><strong></strong>Visual Studio</p>
+                    </div>
+
+                    <!-- DirectX -->
+                    <div class="card extra-card" style="display:none;">
+                        <img src="photos/DirectX.svg" alt="DirectX">
+                        <p><strong>DirectX</strong></p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal for Custom Engine -->
+        <div id="ModalCustomEngine" class="w3-modal" onclick="closeModal(event, 'ModalCustomEngine')">
+            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
+                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalCustomEngine')">&times;</span>
+                <h2>Custom Engine</h2>
+                <h3>Overview</h3>
+                <p>
+                    This project is a custom-built game engine developed in C++ from scratch. It was created as part of my Programming 4 course
+
+                    <h3>View the source code in Github: </h3>
+
+                    <div class="w3-section modal-icons">
+                        <a href="https://github.com/GonaGui/GP1-DualRasterizer" title="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github w3-hover-opacity"></i>
+                        </a>
+                    </div>
+
+                    <h3>Some of the features</h3>
+                    <ul>
+                        <li>Entity Component System (ECS) architecture</li>
+                        <li>Basic physics and collision detection</li>
+                        <li>Rendering pipeline with support for 2D sprites</li>
+                        <li>Input and event system</li>
+                        <li>Scene management and serialization</li>
+                    </ul>
+
+                    <h3>Technical Details</h3>
+                    <ul>
+                        <li>Implemented in modern C++ with modular subsystems</li>
+                        <li>Uses SDL for graphics backend</li>
+                        <li>Resource management system for textures, meshes, and audio</li>
+                    </ul>
+
+                    <!-- <h3>Challenges & Solutions</h3>
+      <ul>
+          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+      </ul>
+    -->
+
+                    <h3>Outcome</h3>
+                <p> While not production-ready, this project demonstrates a working foundation of a custom game engine. It gave me hands-on experience with the challenges of low-level engine development, resource management, and real-time performance considerations.</p>
+
+                <h3>Tech Stack</h3>
+                <div class="card-container" id="techStackContainer">
+
+                    <!-- Github -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                        <p><strong>Github</strong></p>
+                    </div>
+
+                    <!-- Visual Studio -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                        <p><strong></strong>Visual Studio</p>
+                    </div>
+
+                    <!-- SDL -->
+                    <div class="card extra-card" style="display:none;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL">
+                        <p><strong>SDL</strong></p>
                     </div>
 
                 </div>
@@ -578,7 +960,7 @@
             <!-- Visual Studio Code -->
             <div class="card">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
-                <p><strong>Visual Studio Code</strong></p>
+                <p><strong>VS Code</strong></p>
             </div>
 
             <!-- JetBrains Rider -->
@@ -663,21 +1045,17 @@
             <i class="fa fa-arrow-up w3-margin-right"></i>To the top
         </a>
 
-        <div class="w3-large w3-section">
-            <p>
-                <i class="fa fa-phone fa-fw w3-margin-right"></i> +351 925 303 080
-            </p>
-            <p>
-                <i class="fa fa-envelope fa-fw w3-margin-right"></i> goncalo.a.v.gui@gmail.com
-            </p>
+        <div class="w3-large w3-section contact-info">
+            <div><i class="fas fa-phone fa-fw"></i> +351 925 303 080</div>
+            <div><i class="fas fa-envelope fa-fw"></i> goncalo.a.v.gui@gmail.com</div>
         </div>
 
         <div class="w3-section footer-icons">
             <a href="https://github.com/GonaGui" title="GitHub" target="_blank" rel="noopener noreferrer">
-                <i class="fa fa-github w3-hover-opacity"></i>
+                <i class="fab fa-github w3-hover-opacity"></i>
             </a>
             <a href="https://www.linkedin.com/in/gon%C3%A7alo-guilherme-15470524b/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
+                <i class="fab fa-linkedin w3-hover-opacity"></i>
             </a>
         </div>
 
@@ -714,17 +1092,43 @@
             }
         }
 
+        let scrollPosition = 0;
+
         function openModal(id) {
             const modal = document.getElementById(id);
+            const modalContent = modal.querySelector('.w3-modal-content');
+
+            // Show modal first
             modal.style.display = 'block';
-            document.body.classList.add('modal-open');
+
+            // Lock body scroll
+            scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(event, id) {
             const modal = document.getElementById(id);
+            const modalContent = modal.querySelector('.w3-modal-content');
+
             if (event.target.classList.contains('w3-modal') || event.target.tagName === 'SPAN') {
                 modal.style.display = 'none';
-                document.body.classList.remove('modal-open');
+
+                // Reset scroll of modal content
+                modalContent.scrollTop = 0;
+
+                // Unlock body scroll
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.overflow = '';
+
+                // Restore body scroll
+                window.scrollTo(0, scrollPosition);
             }
         }
 
@@ -738,6 +1142,42 @@
                 button.textContent = isHidden ? '▲ Show Less' : '▼ Show More';
             });
         });
+
+        let slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            let i;
+            const x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+
+        let rasterIndex = 1;
+        showRaster(rasterIndex);
+
+        function plusRaster(n) {
+            showRaster(rasterIndex += n);
+        }
+
+        function showRaster(n) {
+            let i;
+            const x = document.getElementsByClassName("mySlidesRaster");
+            if (n > x.length) { rasterIndex = 1 }
+            if (n < 1) { rasterIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[rasterIndex - 1].style.display = "block";
+        }
 
     </script>
 
