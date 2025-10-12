@@ -111,6 +111,22 @@
             box-shadow: 0 0 40px rgba(255, 77, 193, 0.8);
         }
 
+        .cv-button {
+            background-color: #ff4dc1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .cv-button:hover {
+            background-color: #e03eb2;
+        }
+
         .project-card {
             display: block;
             text-decoration: none;
@@ -285,34 +301,6 @@
 
     <div id="home"></div>
 
-    <!-- Navbar (sit on top) -->
-    <!--<div class="w3-top">
-      <div class="w3-bar" id="myNavbar">
-        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="#home" class="w3-bar-item w3-button">HOME</a>
-        <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-          <i class="fa fa-search"></i>
-        </a>
-      </div>-->
-    <!-- Navbar on small screens -->
-    <!--<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-        <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-      </div>
-    </div>-->
-    <!-- First Parallax Image with Logo Text -->
-    <!--<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span class="w3-hide-small">WEBSITE</span> LOGO</span>
-      </div>
-    </div>-->
     <!-- Container (About Section) -->
     <div class="w3-content w3-container w3-padding-64" id="about">
         <h3 class="w3-center">ABOUT ME</h3>
@@ -328,44 +316,32 @@
                      class="w3-image fancy-profile"
                      alt="Photo of Me"
                      style="width: 300px; height: 300px;">
+
+                <!-- Cv button -->
+                <div class="w3-center w3-padding-32">
+                    <button class="w3-button w3-pink w3-round-large w3-large" onclick="window.open('CV_Gonçalo Guilherme.pdf', '_blank')">
+                        <i class="fas fa-download w3-margin-right"></i>View CV
+                    </button>
+                </div>
             </div>
 
             <!-- Text column -->
             <div class="w3-col m6 w3-padding-large about-text">
                 <p>
-                    My name is Gonçalo Guilherme and I’m a Gameplay Programmer.
+                    My name is Gonçalo Guilherme and I'm a Gameplay Programmer.
                     I was born in Portugal and am currently finishing my higher education studies in Belgium.
                     I am creative a hard worker and a great team player.
                 </p>
             </div>
-
         </div>
-        <!--<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">14+</span><br>
-        Partners
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">55+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br>
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br>
-        Meetings
-      </div>
-    </div>-->
-        <!-- Second Parallax Image with Portfolio Text -->
+
+        <!-- Portfolio Section -->
         <div class="bgimg-2 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
                 <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
             </div>
         </div>
 
-        <!-- Portfolio Section -->
         <div class="w3-content w3-container w3-padding-64" id="projects">
             <p class="w3-center"><em>These are projects I coded. Hover for info, click to learn more.</em></p>
 
@@ -585,10 +561,10 @@
                 </ul>
 
                 <!-- <h3>Challenges & Solutions</h3>
-      <ul>
-          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-      </ul>
-    -->
+              <ul>
+                  <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+              </ul>
+            -->
 
                 <h3>Outcome</h3>
                 <p> Me and my team managed to make the project compatible with both NES emulators and the original console. Including the FourScore in emulator and on console.</p>
@@ -705,10 +681,10 @@
                 </ul>
 
                 <!-- <h3>Challenges & Solutions</h3>
-      <ul>
-          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-      </ul>
-    -->
+              <ul>
+                  <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+              </ul>
+            -->
 
                 <h3>Outcome</h3>
                 <p> Despite not meeting all the goals that were set for the class and by me this project is still a fully function graphics renderer made using Vulkan API completely from scratch. The project still has many flaws and most likely would struggle to run on alot of devices due to graphics card compatability.</p>
@@ -795,10 +771,10 @@
                 </ul>
 
                 <!-- <h3>Challenges & Solutions</h3>
-      <ul>
-          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-      </ul>
-    -->
+              <ul>
+                  <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+              </ul>
+            -->
 
                 <h3>Outcome</h3>
                 <p> This project showcases the two different Rasterizers with most features being compatible in between the both of them.</p>
@@ -863,10 +839,10 @@
                     </ul>
 
                     <!-- <h3>Challenges & Solutions</h3>
-      <ul>
-          <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-      </ul>
-    -->
+                  <ul>
+                      <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
+                  </ul>
+                -->
 
                     <h3>Outcome</h3>
                 <p> While not production-ready, this project demonstrates a working foundation of a custom game engine. It gave me hands-on experience with the challenges of low-level engine development, resource management, and real-time performance considerations.</p>
