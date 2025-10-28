@@ -21,14 +21,14 @@
             line-height: 1.8;
             background: #121212;
             background-attachment: fixed;
-            background-size: cover; /* ensures it stretches */
+            background-size: cover;
         }
 
         footer {
             background: #121212;
             position: relative;
             z-index: 10;
-            margin-top: -150px;
+            margin-top: 50px;
         }
 
         .footer-icons {
@@ -48,8 +48,8 @@
         }
 
         .modal-icons i {
-            font-size: 40px; /* match footer size */
-            margin: 0 10px; /* optional spacing */
+            font-size: 40px;
+            margin: 0 10px;
         }
 
         .w3-wide {
@@ -63,7 +63,6 @@
         #about .w3-row {
             display: flex;
             align-items: center;
-            gap: -200px;
         }
 
         .w3-col.m6.w3-center.w3-padding-large {
@@ -81,12 +80,7 @@
             line-height: 1.8;
         }
 
-        #about {
-            margin-bottom: 200px;
-        }
-
         .bgimg-2{
-            top: 100px;
             padding-top: 150px;
         }
 
@@ -121,6 +115,13 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin: 20px 0;
+        }
+
+        .w3-modal-content iframe {
+            width: 100%;
+            height: 700px;
+            margin-bottom: 15px;
+            border-radius: 8px;
         }
 
         .cv-button:hover {
@@ -168,18 +169,46 @@
             opacity: 1;
         }
 
-        .project-tag {
+        .project-tags-container {
             position: absolute;
             top: 10px;
             left: 10px;
-            background-color: #ff4dc1;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            z-index: 2;
+        }
+
+        .project-tag {
+            position: static;
+            margin: 0;
             color: white;
             font-size: 12px;
             font-weight: 600;
             padding: 4px 10px;
             border-radius: 9999px;
-            z-index: 2;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+
+        .project-tag.group {
+            background-color: #ff4dc1;
+        }
+
+        .project-tag.solo {
+            background-color: #ff0000;
+        }
+
+        .project-tag.engine {
+            background-color: #ac13ff;
+        }
+
+        .project-tag.graphics {
+            background-color: #00bb19;
+        }
+
+        .project-tag.gameplay {
+            background-color: #ff8800;
         }
 
         .w3-content {
@@ -196,16 +225,16 @@
         }
 
         body.modal-open {
-            overflow: hidden; /* prevent scrolling on the body */
+            overflow: hidden;
         }
 
         .w3-modal {
-            position: fixed; /* full viewport */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: auto; /* allow scrolling inside the modal */
+            overflow: auto;
             z-index: 1000;
         }
 
@@ -213,19 +242,19 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            justify-content: center; /* centers incomplete last row */
+            justify-content: center;
             padding: 20px;
             background-color: #1e1e1e;
             border: 2px solid #333;
             border-radius: 12px;
-            max-width: 550px; /* ensures at most 3 cards of 150px fit */
+            max-width: 550px;
             margin: 0 auto 30px;
             box-sizing: border-box;
         }
 
         .card-container-title {
             flex: 0 0 100%;
-            grid-column: 1 / -1; /* span all columns */
+            grid-column: 1 / -1;
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 16px;
@@ -263,23 +292,22 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.7);
         }
 
-        /* Responsive adjustments */
         @media (max-width: 800px) {
             .card-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 per row */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 500px) {
             .card-container {
-                grid-template-columns: 1fr; /* 1 per row */
+                grid-template-columns: 1fr;
             }
         }
 
         .toggle-tech-btn {
             flex: 0 0 100%;
-            grid-column: 1 / -1; /* span all columns */
-            justify-self: center; /* center within that row */
+            grid-column: 1 / -1;
+            justify-self: center;
             margin-top: 10px;
             padding: 8px 16px;
             background-color: #ff4dc1;
@@ -293,23 +321,17 @@
         .toggle-tech-btn:hover {
             background-color: #e03eb2;
         }
-
-
     </style>
 </head>
 <body>
 
     <div id="home"></div>
 
-    <!-- Container (About Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="about">
+    <div class="w3-content w3-container w3-padding-64" id="about" margin-bottom = -50>
         <h3 class="w3-center">ABOUT ME</h3>
-        <!--<p class="w3-center"><em>I love photography</em></p> -->
         <p></p>
 
         <div class="w3-row">
-
-            <!-- Profile column -->
             <div class="w3-col m6 w3-center w3-padding-large">
                 <p><b><i class="fa fa-user w3-margin-right"></i>Gonçalo Guilherme</b></p><br>
                 <img src="photos/selfie.jpg"
@@ -317,7 +339,6 @@
                      alt="Photo of Me"
                      style="width: 300px; height: 300px;">
 
-                <!-- Cv button -->
                 <div class="w3-center w3-padding-32">
                     <button class="w3-button w3-pink w3-round-large w3-large" onclick="window.open('CV_Gonçalo Guilherme.pdf', '_blank')">
                         <i class="fas fa-download w3-margin-right"></i>View CV
@@ -325,7 +346,6 @@
                 </div>
             </div>
 
-            <!-- Text column -->
             <div class="w3-col m6 w3-padding-large about-text">
                 <p>
                     My name is Gonçalo Guilherme and I'm a Gameplay Programmer.
@@ -335,32 +355,35 @@
             </div>
         </div>
 
-        <!-- Portfolio Section -->
         <div class="bgimg-2 w3-display-container w3-opacity-min">
             <div class="w3-display-middle">
                 <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
             </div>
         </div>
 
-        <div class="w3-content w3-container w3-padding-64" id="projects">
+        <div class="w3-content w3-container" id="projects">
             <p class="w3-center"><em>These are projects I coded. Hover for info, click to learn more.</em></p>
 
             <div class="w3-row-padding w3-center">
-
-                <!-- Project Card -->
                 <div class="w3-col m6 w3-padding" onclick="openModal('ModalBeatsFromTheDeep')">
                     <div class="project-image-container">
-                        <span class="project-tag">Group Project</span>
+                        <div class="project-tags-container">
+                        <span class="project-tag group">Group Project</span>
+                        <span class="project-tag gameplay">Gameplay</span>
+                        </div>
                         <img src="photos/BeatsFromTheDeep.png" alt="Beats from the Deep" class="project-img">
                         <div class="project-overlay">
-                            <p>Couch co-op Rythm game made in Unreal</p>
+                            <p>Couch co-op Rhythm game made in Unreal</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="w3-col m6 w3-padding" onclick="openModal('ModalFloppyBirds')">
                     <div class="project-image-container">
-                        <span class="project-tag">Group Project</span>
+                        <div class="project-tags-container">
+                        <span class="project-tag group">Group Project</span>
+                        <span class="project-tag gameplay">Gameplay</span>
+                        </div>
                         <img src="photos/FloppyBirds.png" alt="Floppy Birds" class="project-img">
                         <div class="project-overlay">
                             <p>A Retro game for the NES made in Assembly 6502</p>
@@ -370,7 +393,10 @@
 
                 <div class="w3-col m6 w3-padding" onclick="openModal('ModalVulkanRenderer')">
                     <div class="project-image-container">
-                        <span class="project-tag">Solo Project</span>
+                    <div class="project-tags-container">
+                        <span class="project-tag solo">Solo Project</span>
+                        <span class="project-tag graphics">Graphics</span>
+                    </div>
                         <img src="photos/VulkanRenderer.png" alt="Vulkan Renderer" class="project-img">
                         <div class="project-overlay">
                             <p>Custom Vulkan renderer</p>
@@ -380,34 +406,33 @@
 
                 <div class="w3-col m6 w3-padding" onclick="openModal('ModalDualRasterizer')">
                     <div class="project-image-container">
-                        <span class="project-tag">Solo Project</span>
+                    <div class="project-tags-container">
+                        <span class="project-tag solo">Solo Project</span>
+                        <span class="project-tag graphics">Graphics</span>
+                    </div>
                         <img src="photos/DualRasterizer_DirectX.png" alt="Dual Rasterizer" class="project-img">
                         <div class="project-overlay">
                             <p>Software and Hardware Dual Rasterizer</p>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
 
             <div class="w3-row" style="display: flex; justify-content: center;">
                 <div class="w3-col m6 w3-padding" onclick="openModal('ModalCustomEngine')">
                     <div class="project-image-container">
-                        <span class="project-tag">Solo Project</span>
+                    <div class="project-tags-container">
+                        <span class="project-tag solo">Solo Project</span>
+                        <span class="project-tag engine">Engine</span>
+                    </div>
                         <img src="photos/CustomGameEngine.png" alt="Custom 2D Engine" class="project-img">
                         <div class="project-overlay"><p>A lightweight lib engine for simple 2D games</p></div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-
-
-        <!-- MODALS (DESCRIPTIONS OF THE PROJECTS) -->
-        <!-- Modal for Beats from the Deep -->
+        <!-- MODALS -->
         <div id="ModalBeatsFromTheDeep" class="w3-modal" onclick="closeModal(event, 'ModalBeatsFromTheDeep')">
             <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
                 <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalBeatsFromTheDeep')">&times;</span>
@@ -418,15 +443,9 @@
                     It was made by a team of 6 students for the Game Projects course in DAE Howest.
                 </p>
 
-                <img src="photos/BeatsFromTheDeep.png" style="width:100%; margin-bottom:15px;">
-
-                <h3>View the source code in Github: </h3>
-
-                <div class="w3-section modal-icons">
-                    <a href="https://github.com/GonaGui/BeatsFromTheDeepSource" title="GitHub" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github w3-hover-opacity"></i>
-                    </a>
-                </div>
+                <iframe src="https://www.youtube.com/embed/9_iJfYE23qs?si=qsgqpdxlPjvU6apo" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
                 <h3>Play demo and view DevLogs in Itch.io: </h3>
                 <div class="w3-section modal-icons">
@@ -434,15 +453,6 @@
                         <i class="fab fa-itch-io w3-hover-opacity"></i>
                     </a>
                 </div>
-
-
-                <h3>Team: </h3>
-                <p>Gonçalo Guilherme (Programmer)</p>
-                <p>Bouke Weel (Programmer)</p>
-                <p>Missy Cooper (Artist)</p>
-                <p>Ieva Sucila (Artist)</p>
-                <p>Kwinten Hermanns (Tech Artist)</p>
-                <p>Matthias Peene (Sound)</p>
 
                 <h3>Some of my Contributions</h3>
                 <ul>
@@ -470,16 +480,22 @@
 
                 <h3>Challenges & Solutions</h3>
                 <ul>
-                    <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for a hold-note pair</li>
+                    <li>Challenge: Hold notes going out of sync → Solution: Added to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for hold-note pairs</li>
                 </ul>
 
                 <h3>Outcome</h3>
-                <p>The goal of creating a vertical slice was completed as this project showcases what the moment to moment gameplay of this game might be like. It was submitted to a couple competitions such as the Rookies. And was graded well within the course.</p>
+                <p>The goal of creating a vertical slice was completed as this project showcases what the moment to moment gameplay of this game might be like. It was submitted to competitions and was graded well within the course.</p>
+
+                <h3>Team</h3>
+                <p>Gonçalo Guilherme (Programmer)</p>
+                <p>Bouke Weel (Programmer)</p>
+                <p>Missy Cooper (Artist)</p>
+                <p>Ieva Sucila (Artist)</p>
+                <p>Kwinten Hermanns (Tech Artist)</p>
+                <p>Matthias Peene (Sound)</p>
 
                 <h3>Tech Stack</h3>
-                <div class="card-container" id="techStackContainer">
-
-                    <!-- Unreal Engine 5 -->
+                <div class="card-container">
                     <div class="card">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
                         <p><strong>Unreal Engine 5</strong></p>
@@ -531,7 +547,8 @@
                     It was made by a team of 4 students for the Retro Games and Console class.
                 </p>
 
-                <img src="photos/FloppyBirds.png" style="width:100%; margin-bottom:15px;">
+                <iframe src="https://www.youtube.com/embed/8TgDhpPtJdU?si=BWc4Wtm2yOqqbU-c" title="YouTube video player" frameborder="0" allow="accelerometer; 
+                autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
                 <h3>View the source code in Github: </h3>
 
@@ -877,7 +894,7 @@
 
         <!-- SKILLS -->
 
-        <div class="card-container">
+        <div class="card-container"  style="margin-top: 50px;">
             <h3 class="card-container-title">Known Coding Languages:</h3>
 
             <!-- C++ -->
