@@ -245,48 +245,67 @@
         .card-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
             justify-content: center;
-            padding: 20px;
+
+            padding: 15px;
             background-color: #1e1e1e;
             border: 2px solid #333;
             border-radius: 12px;
-            max-width: 550px;
-            margin: 0 auto 30px;
+
+            max-width: 380px; /* smaller container */
+            max-height: 240px; /* shorter */
+            overflow-y: auto;
+
+            margin: 0 auto 20px;
             box-sizing: border-box;
+        }
+
+        .card-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .card-container::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        .card-container::-webkit-scrollbar-thumb {
+            background: #ff4dc1;
+            border-radius: 8px;
         }
 
         .card-container-title {
             flex: 0 0 100%;
             text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: #F7F7F7;
-            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .card {
-            flex: 0 0 150px;
+            flex: 0 0 calc(50% - 5px); /* 2 cards per row */
+            max-width: 150px;
+
             background-color: #2a2a2a;
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 10px;
+            padding: 10px;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
         }
 
             .card img {
-                width: 48px;
-                margin-bottom: 8px;
+                width: 36px; /* smaller icons */
+                margin-bottom: 6px;
             }
-
+    
             .card p {
                 margin: 0;
-                font-weight: bold;
-                color: #F7F7F7;
+                font-size: 14px;
             }
 
             .card:hover {
@@ -389,7 +408,7 @@
 
     <div id="home"></div>
 
-    <div class="w3-content w3-container w3-padding-64" id="about" margin-bottom=-50>
+    <div class="w3-content w3-container w3-padding-64" id="about" style="margin-bottom:-50px;">
         <h3 class="w3-center">ABOUT ME</h3>
         <p></p>
 
@@ -412,9 +431,150 @@
                 <p>
                     My name is Gonçalo Guilherme and I'm a Gameplay Programmer.
                     I was born in Portugal and am currently finishing my higher education studies in DAE Howest Game Delopment course.
-                    I am creative, a hard worker and a great team player.
+                    I have a strong knowledge and experience in both Unreal and Unity. I'm a team player and a quick learner.
                 </p>
             </div>
+
+            <!-- Skills and techstack box -->
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <!-- Skills box -->
+                <div class="card-container">
+                    <h3 class="card-container-title">Skills</h3>
+
+                    <!-- C++ -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                        <p><strong>C++</strong></p>
+                    </div>
+
+                    <!-- C# -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
+                        <p><strong>C#</strong></p>
+                    </div>
+
+                    <!-- C -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+                        <p><strong>C</strong></p>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        <p><strong>Python</strong></p>
+                    </div>
+
+                    <!-- Lua -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" alt="Lua">
+                        <p><strong>Lua</strong></p>
+                    </div>
+
+                    <!-- GLSL -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg" alt="GLSL">
+                        <p><strong>GLSL</strong></p>
+                    </div>
+                </div>
+
+                <!-- Tech Stack box -->
+                <div class="card-container">
+                    <h3 class="card-container-title">Tech Stack</h3>
+
+                    <!-- Unreal Engine 5 -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
+                        <p><strong>Unreal Engine 5</strong></p>
+                    </div>
+
+                    <!-- Unity -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity">
+                        <p><strong>Unity</strong></p>
+                    </div>
+
+                    <!-- HackNPlan -->
+                    <div class="card">
+                        <img src="photos/hacknplan.png" alt="HackNPlan">
+                        <p><strong>HackNPlan</strong></p>
+                    </div>
+
+                    <!-- Visual Studio -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
+                        <p><strong></strong>Visual Studio</p>
+                    </div>
+
+                    <!-- Visual Studio Code -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
+                        <p><strong>VS Code</strong></p>
+                    </div>
+
+                    <!-- JetBrains Rider -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="JetBrains Rider">
+                        <p><strong>Rider</strong></p>
+                    </div>
+
+                    <!-- Perforce -->
+                    <div class="card">
+                        <img src="photos/perforce.svg" alt="Perforce">
+                        <p><strong>Perforce</strong></p>
+                    </div>
+
+                    <!-- Github -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
+                        <p><strong>Github</strong></p>
+                    </div>
+
+                    <!-- CMake -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg" alt="CMake">
+                        <p><strong>CMake</strong></p>
+                    </div>
+
+                    <!-- Vulkan -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vulkan/vulkan-original.svg" alt="Vulkan">
+                        <p><strong>Vulkan</strong></p>
+                    </div>
+
+                    <!-- DirectX -->
+                    <div class="card">
+                        <img src="photos/DirectX.svg" alt="DirectX">
+                        <p><strong>DirectX</strong></p>
+                    </div>
+
+                    <!-- SDL -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL">
+                        <p><strong>SDL</strong></p>
+                    </div>
+
+                    <!-- OpenGL -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-plain.svg" alt="OpenGL">
+                        <p><strong>OpenGL</strong></p>
+                    </div>
+
+                    <!-- Photoshop -->
+                    <div class="card">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
+                        <p><strong>Photoshop</strong></p>
+                    </div>
+
+                    <!-- Blender -->
+                    <div class="card">
+                        <img src="photos/Logo_Blender.svg" alt="Blender">
+                        <p><strong>Blender</strong></p>
+                    </div>
+                    
+                </div>
+            </div>
+            
         </div>
 
         <div class="bgimg-2 w3-display-container w3-opacity-min">
@@ -1053,149 +1213,6 @@
 
             </div>
         </div>
-
-
-
-        <!-- SKILLS -->
-
-        <div class="card-container" style="margin-top: 50px;">
-            <h3 class="card-container-title">Known Coding Languages:</h3>
-
-            <!-- C++ -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
-                <p><strong>C++</strong></p>
-            </div>
-
-            <!-- C# -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#">
-                <p><strong>C#</strong></p>
-            </div>
-
-            <!-- C -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
-                <p><strong>C</strong></p>
-            </div>
-
-            <!-- Python -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                <p><strong>Python</strong></p>
-            </div>
-
-            <!-- Lua -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" alt="Lua">
-                <p><strong>Lua</strong></p>
-            </div>
-
-            <!-- GLSL -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-original.svg" alt="GLSL">
-                <p><strong>GLSL</strong></p>
-            </div>
-
-        </div>
-
-        <div class="card-container" id="techStackContainer">
-            <h3 class="card-container-title">Tech Stack:</h3>
-
-            <!-- Unreal Engine 5 -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
-                <p><strong>Unreal Engine 5</strong></p>
-            </div>
-
-            <!-- Unity -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity">
-                <p><strong>Unity</strong></p>
-            </div>
-
-            <!-- HackNPlan -->
-            <div class="card">
-                <img src="photos/hacknplan.png" alt="HackNPlan">
-                <p><strong>HackNPlan</strong></p>
-            </div>
-
-            <!-- Visual Studio -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
-                <p><strong></strong>Visual Studio</p>
-            </div>
-
-            <!-- Visual Studio Code -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code">
-                <p><strong>VS Code</strong></p>
-            </div>
-
-            <!-- JetBrains Rider -->
-            <div class="card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="JetBrains Rider">
-                <p><strong>Rider</strong></p>
-            </div>
-
-            <!-- Perforce -->
-            <div class="card extra-card" style="display:none;">
-                <img src="photos/perforce.svg" alt="Perforce">
-                <p><strong>Perforce</strong></p>
-            </div>
-
-            <!-- Github -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
-                <p><strong>Github</strong></p>
-            </div>
-
-            <!-- CMake -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cmake/cmake-original.svg" alt="CMake">
-                <p><strong>CMake</strong></p>
-            </div>
-
-            <!-- Vulkan -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vulkan/vulkan-original.svg" alt="Vulkan">
-                <p><strong>Vulkan</strong></p>
-            </div>
-
-            <!-- DirectX -->
-            <div class="card extra-card" style="display:none;">
-                <img src="photos/DirectX.svg" alt="DirectX">
-                <p><strong>DirectX</strong></p>
-            </div>
-
-            <!-- SDL -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL">
-                <p><strong>SDL</strong></p>
-            </div>
-
-            <!-- OpenGL -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opengl/opengl-plain.svg" alt="OpenGL">
-                <p><strong>OpenGL</strong></p>
-            </div>
-
-            <!-- Photoshop -->
-            <div class="card extra-card" style="display:none;">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop">
-                <p><strong>Photoshop</strong></p>
-            </div>
-
-            <!-- Blender -->
-            <div class="card extra-card" style="display:none;">
-                <img src="photos/Logo_Blender.svg" alt="Blender">
-                <p><strong>Blender</strong></p>
-            </div>
-
-            <button class="toggle-tech-btn">▼ Show More</button>
-        </div>
-
-    </div>
 
 
     <!-- Modal for full size images on click-->
