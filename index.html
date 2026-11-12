@@ -171,47 +171,74 @@
 
         .project-tags-container {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 12px;
+            left: 12px;
             display: flex;
-            gap: 5px;
+            gap: 8px;
             flex-wrap: wrap;
             z-index: 2;
         }
 
         .project-tag {
-            margin: 0;
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 9999px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-size: 16px;
+            border-radius: 50%;
+            background: rgba(18, 18, 18, 0.88);
+            border: 1px solid rgba(255,255,255,0.22);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.45);
+            cursor: help;
         }
 
-            .project-tag.group {
-                background-color: #ff4dc1;
-            }
+        .project-tag.group { color: #ff75ca; }
+        .project-tag.solo { color: #ff7777; }
+/* Engine logo (masked to currentColor) */
+.project-tag .engine-logo,
+.project-icon-legend .legend-engine {
+    display: inline-block;
+    background-color: currentColor;
+    -webkit-mask-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    mask-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+}
 
-            .project-tag.solo {
-                background-color: #ff0000;
-            }
+.project-tag .engine-logo {
+    width: 22px;
+    height: 22px;
+}
 
-            .project-tag.engine {
-                background-color: #ac13ff;
-            }
-
-            .project-tag.graphics {
-                background-color: #00bb19;
-            }
-
-            .project-tag.gameplay {
-                background-color: #ff8800;
-            }
-
-            .project-tag.WIP {
-                background-color: #00FFFF;
-            }
+/* Tidy up the legend so the icons line up nicely */
+.project-icon-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+.project-icon-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.project-icon-legend .legend-engine {
+    width: 16px;
+    height: 16px;
+    color: #c18aff;
+}
+        .project-tag.graphics { color: #75df8a; }
+        .project-tag.gameplay { color: #ffb15e; }
 
         .w3-content {
             max-width: 100% !important;
@@ -430,7 +457,7 @@
             <div class="w3-col m6 w3-padding-large about-text">
                 <p>
                     My name is Gonçalo Guilherme and I'm a Gameplay Programmer.
-                    I was born in Portugal and am currently finishing my higher education studies in DAE Howest Game Delopment course.
+                    I was born in Portugal and graduated DAE Howest Game Delopment course.
                     I have a strong knowledge and experience in both Unreal and Unity. I'm a team player and a quick learner.
                 </p>
             </div>
@@ -584,89 +611,70 @@
         </div>
 
         <div class="w3-content w3-container" id="projects">
-            <p class="w3-center"><em>These are projects I coded. Hover for info, click to learn more.</em></p>
+    <p class="w3-center"><em>These are projects I coded. Hover over the icons for details, click to learn more.</em></p>
 
-            <div class="w3-row-padding w3-center">
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalBeatsFromTheDeep')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag group">Group Project</span>
-                            <span class="project-tag gameplay">Gameplay</span>
-                        </div>
-                        <img src="photos/BeatsFromTheDeep.png" alt="Beats from the Deep" class="project-img">
-                        <div class="project-overlay">
-                            <p>Couch co-op Rhythm game made in Unreal</p>
-                        </div>
-                    </div>
+    <div class="project-icon-legend" aria-label="Project icon legend">
+        <span><i class="fas fa-users" aria-hidden="true"></i> Group project</span>
+        <span><i class="fas fa-user" aria-hidden="true"></i> Solo project</span>
+        <span><i class="fas fa-gamepad" aria-hidden="true"></i> Gameplay</span>
+        <span><i class="fas fa-cube" aria-hidden="true"></i> Graphics</span>
+        <span><span class="legend-engine" aria-hidden="true"></span> Engine used</span>
+    </div>
+
+    <div class="w3-row-padding w3-center">
+
+        <!-- Into The Deep -->
+        <div class="w3-col m6 w3-padding" onclick="openModal('ModalIntoTheDeep')">
+            <div class="project-image-container">
+                <div class="project-tags-container">
+                    <span class="project-tag group"    title="Group project"><i class="fas fa-users"    aria-hidden="true"></i></span>
+                    <span class="project-tag gameplay" title="Gameplay programming"><i class="fas fa-gamepad" aria-hidden="true"></i></span>
+                    <span class="project-tag engine"   title="Unreal Engine 5" aria-label="Unreal Engine 5"><span class="engine-logo" role="img"></span></span>
                 </div>
-
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalIntoTheDeep')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag group">Group Project</span>
-                            <span class="project-tag gameplay">Gameplay</span>
-                            <span class="project-tag WIP">WIP</span>
-                        </div>
-                        <img src="photos/IntoTheDeep.png" alt="Into The Deep" class="project-img">
-                        <div class="project-overlay"><p>A roguelike game with rythm elements</p></div>
-                    </div>
-                </div>
-
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalFloppyBirds')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag group">Group Project</span>
-                            <span class="project-tag gameplay">Gameplay</span>
-                        </div>
-                        <img src="photos/FloppyBirds.png" alt="Floppy Birds" class="project-img">
-                        <div class="project-overlay">
-                            <p>A Retro game for the NES made in Assembly 6502</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalVulkanRenderer')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag solo">Solo Project</span>
-                            <span class="project-tag graphics">Graphics</span>
-                        </div>
-                        <img src="photos/VulkanRenderer.png" alt="Vulkan Renderer" class="project-img">
-                        <div class="project-overlay">
-                            <p>Custom Vulkan renderer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalDualRasterizer')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag solo">Solo Project</span>
-                            <span class="project-tag graphics">Graphics</span>
-                        </div>
-                        <img src="photos/DualRasterizer_DirectX.png" alt="Dual Rasterizer" class="project-img">
-                        <div class="project-overlay">
-                            <p>Software and Hardware Dual Rasterizer</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w3-col m6 w3-padding" onclick="openModal('ModalCustomEngine')">
-                    <div class="project-image-container">
-                        <div class="project-tags-container">
-                            <span class="project-tag solo">Solo Project</span>
-                            <span class="project-tag engine">Engine</span>
-                        </div>
-                        <img src="photos/CustomGameEngine.png" alt="Custom 2D Engine" class="project-img">
-                        <div class="project-overlay"><p>A lightweight lib engine for simple 2D games</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w3-row" style="display: flex; justify-content: center;">
-
+                <img src="photos/IntoTheDeep.jpg" alt="Into The Deep" class="project-img">
+                <div class="project-overlay"><p>A roguelike game with rythm elements</p></div>
             </div>
         </div>
+
+        <!-- Beats from the Deep -->
+        <div class="w3-col m6 w3-padding" onclick="openModal('ModalBeatsFromTheDeep')">
+            <div class="project-image-container">
+                <div class="project-tags-container">
+                    <span class="project-tag group"    title="Group project"><i class="fas fa-users"    aria-hidden="true"></i></span>
+                    <span class="project-tag gameplay" title="Gameplay programming"><i class="fas fa-gamepad" aria-hidden="true"></i></span>
+                    <span class="project-tag engine"   title="Unreal Engine 5" aria-label="Unreal Engine 5"><span class="engine-logo" role="img"></span></span>
+                </div>
+                <img src="photos/BeatsFromTheDeep.png" alt="Beats from the Deep" class="project-img">
+                <div class="project-overlay"><p>Couch co-op Rhythm game made in Unreal</p></div>
+            </div>
+        </div>
+
+        <!-- Floppy Birds -->
+        <div class="w3-col m6 w3-padding" onclick="openModal('ModalFloppyBirds')">
+            <div class="project-image-container">
+                <div class="project-tags-container">
+                    <span class="project-tag group"    title="Group project"><i class="fas fa-users"    aria-hidden="true"></i></span>
+                    <span class="project-tag gameplay" title="Gameplay programming"><i class="fas fa-gamepad" aria-hidden="true"></i></span>
+                </div>
+                <img src="photos/FloppyBirds.png" alt="Floppy Birds" class="project-img">
+                <div class="project-overlay"><p>A Retro game for the NES made in Assembly 6502</p></div>
+            </div>
+        </div>
+
+        <!-- Vulkan Renderer -->
+        <div class="w3-col m6 w3-padding" onclick="openModal('ModalVulkanRenderer')">
+            <div class="project-image-container">
+                <div class="project-tags-container">
+                    <span class="project-tag solo"     title="Solo project"><i class="fas fa-user" aria-hidden="true"></i></span>
+                    <span class="project-tag graphics" title="Graphics programming"><i class="fas fa-cube" aria-hidden="true"></i></span>
+                </div>
+                <img src="photos/VulkanRenderer.png" alt="Vulkan Renderer" class="project-img">
+                <div class="project-overlay"><p>Custom Vulkan renderer</p></div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
         <!-- MODALS -->
         <div id="ModalBeatsFromTheDeep" class="w3-modal" onclick="closeModal(event, 'ModalBeatsFromTheDeep')">
@@ -772,50 +780,58 @@
             </div>
         </div>
 
+
+        <!-- Modal for Into The Deep -->
         <div id="ModalIntoTheDeep" class="w3-modal" onclick="closeModal(event, 'ModalIntoTheDeep')">
             <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
                 <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalIntoTheDeep')">&times;</span>
-                <h2>Into the Deep</h2>
+                <h2>Into The Deep</h2>
+                <p><strong>Released:</strong> 3 June 2026 &nbsp;|&nbsp; <strong>Price:</strong> Free to Play</p>
+
                 <h3>Overview</h3>
                 <p>
-                    Into the deep is a roguelike game with rythmic elements. Unlike conventional rythm games you arent forced to act on rythm but instead "coerced" as the enemies themselves will atack on musical elements.
+                    Into The Deep is a rhythm roguelike where you dive into the ocean to fight creatures corrupted
+                    by a meteor. Dash and battle through rooms filled with corrupted enemies, make your way towards
+                    the final boss, and adapt your build by finding abilities that can significantly change your
+                    playstyle during each run.
                 </p>
                 <p>
-                    The game is not yet finished and is only 3 weeks into production. This page does not represent the final product.
+                    The game was developed by a team of six students as a third-year group project for the Digital
+                    Arts &amp; Entertainment bachelor at Howest (Hogeschool West-Vlaanderen). The soundtrack was
+                    composed by Behnaz Tohidi, a student at the Royal Conservatoire of Ghent.
                 </p>
 
-                <iframe src="https://www.youtube.com/embed/7OV-Ze3DXis?si=eiCH0miKiSlZcfEC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="w3-section modal-icons">
+                    <a href="https://store.steampowered.com/app/4612780/Into_The_Deep/" title="Into The Deep on Steam" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-steam w3-hover-opacity"></i>
+                    </a>
+                </div>
+                <p><a href="https://store.steampowered.com/app/4612780/Into_The_Deep/" target="_blank" rel="noopener noreferrer">Play Into The Deep on Steam</a></p>
 
                 <h3>Some of my Contributions</h3>
                 <ul>
-                    <li>Bound and created the player Input</li>
-                    <li>Created the "item system"</li>
+                    <li>Bound and created the player input</li>
+                    <li>Created the item system</li>
                     <li>Created multiple item ship parts</li>
-                    <li>Procedural chunk placer</li>
+                    <li>Implemented the procedural chunk placer</li>
                     <li>And more...</li>
                 </ul>
 
                 <h3>Technical Details</h3>
                 <ul>
-                    <li>Built in Unreal Engine 5 with C++ and Blueprints for rapid iteration.</li>
-                    <li>
-                        Core gameplay is a roguelike with exploration elements to gear up for a final boss fight, with rythm elements for the enemies.
-                    </li>
-                    <li>Supports up to 4 local players using Unreal’s Enhanced Input System.</li>
-                    <li>
-                        Enemies are linked to a MIDI music system to attack on musical elements (e.g.: Drums, Kick, Snare)
-                    </li>
+                    <li>Developed in Unreal Engine 5 using C++ and Blueprints.</li>
+                    <li>Rhythm-based action roguelike gameplay with top-down combat.</li>
+                    <li>Players dash and fight through rooms populated by music-corrupted ocean creatures.</li>
+                    <li>Abilities found during a run can change the player's build and playstyle.</li>
+                    <li>Single-player, with Steam Achievements and Steam Cloud support.</li>
                 </ul>
-
-                <h3>Outcome</h3>
-                <p>As of yet nothing since its not finished yet but hopefully at the end of our sprints we will have a fully playable roguelike with 1 major level and a boss.</p>
 
                 <h3>Team</h3>
                 <p>Gonçalo Guilherme (Programmer)</p>
                 <p>Bouke Weel (Programmer)</p>
                 <p>Missy Cooper (Artist)</p>
                 <p>Ieva Sucila (Artist)</p>
-                <p>Kwinten Hermanns (Tech Artist)</p>
+                <p>Kwinten Hermans (Tech Artist)</p>
                 <p>Matthias Peene (Sound)</p>
 
                 <h3>Tech Stack</h3>
@@ -824,39 +840,27 @@
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine 5">
                         <p><strong>Unreal Engine 5</strong></p>
                     </div>
-
-                    <!-- C++ -->
                     <div class="card">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
                         <p><strong>C++</strong></p>
                     </div>
-
-                    <!-- Perforce -->
-                    <div class="card extra-card" style="display:none;">
+                    <div class="card">
                         <img src="photos/perforce.svg" alt="Perforce">
                         <p><strong>Perforce</strong></p>
                     </div>
-
-                    <!-- HackNPlan -->
                     <div class="card">
                         <img src="photos/hacknplan.png" alt="HackNPlan">
                         <p><strong>HackNPlan</strong></p>
                     </div>
-
-                    <!-- JetBrains Rider -->
                     <div class="card">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg" alt="JetBrains Rider">
                         <p><strong>Rider</strong></p>
                     </div>
-
-                    <!-- Visual Studio -->
                     <div class="card">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
-                        <p><strong></strong>Visual Studio</p>
+                        <p><strong>Visual Studio</strong></p>
                     </div>
-
                 </div>
-
             </div>
         </div>
 
@@ -1049,164 +1053,6 @@
                     <div class="card">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vulkan/vulkan-original.svg" alt="Vulkan">
                         <p><strong>Vulkan</strong></p>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Modal for Dual Rasterizer -->
-        <div id="ModalDualRasterizer" class="w3-modal" onclick="closeModal(event, 'ModalDualRasterizer')">
-            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
-                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalDualRasterizer')">&times;</span>
-                <h2>Dual Rasterizer</h2>
-                <h3>Overview</h3>
-                <p>
-                    This project is a Graphics renderer made in c++ using the DirectX API and a fully software one. It was made for my Graphics Programming class.
-                </p>
-
-                <div class="w3-content w3-display-container" style="max-width:100%; position:relative;">
-
-                    <div class="mySlidesRaster" style="position:relative;">
-                        <img src="photos/DualRasterizer_DirectX.png" style="width:100%">
-                        <div class="w3-display-bottommiddle w3-container w3-padding"
-                             style="background: rgba(0,0,0,0.5); color: white;">
-                            DirectX (Hardware) Rasterizer
-                        </div>
-                    </div>
-
-                    <div class="mySlidesRaster" style="position:relative;">
-                        <img src="photos/DualRasterizer_Software.png" style="width:100%">
-                        <div class="w3-display-bottommiddle w3-container w3-padding"
-                             style="background: rgba(0,0,0,0.5); color: white;">
-                            Software Rasterizer
-                        </div>
-                    </div>
-
-                    <button class="w3-button w3-black w3-display-left" onclick="plusRaster(-1)">&#10094;</button>
-                    <button class="w3-button w3-black w3-display-right" onclick="plusRaster(1)">&#10095;</button>
-                </div>
-
-                <h3>View the source code in Github: </h3>
-
-                <div class="w3-section modal-icons">
-                    <a href="https://github.com/GonaGui/GP1-DualRasterizer" title="GitHub" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github w3-hover-opacity"></i>
-                    </a>
-                </div>
-
-                <h3>Some of the features</h3>
-                <ul>
-                    <li>Use of DirectX for the Hardware Rasterizer</li>
-                    <li>Transparency support for both Hardware and Software</li>
-                    <li>Culling with clipping for Hardware and general triangle culling for Software</li>
-                    <li>It has hotkeys for a multitude of things such as cycling cull modes or turning features on or off</li>
-                </ul>
-
-                <h3>Technical Details</h3>
-                <ul>
-                    <li>The project allow for transparency in both hardware and software</li>
-                    <li>Linear Sampling for both hardware and software which allows for smoother looking textures</li>
-                </ul>
-
-                <!-- <h3>Challenges & Solutions</h3>
-              <ul>
-                  <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-              </ul>
-            -->
-
-                <h3>Outcome</h3>
-                <p> This project showcases the two different Rasterizers with most features being compatible in between the both of them.</p>
-
-                <h3>Tech Stack</h3>
-                <div class="card-container" id="techStackContainer">
-
-                    <!-- Github -->
-                    <div class="card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
-                        <p><strong>Github</strong></p>
-                    </div>
-
-                    <!-- Visual Studio -->
-                    <div class="card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
-                        <p><strong></strong>Visual Studio</p>
-                    </div>
-
-                    <!-- DirectX -->
-                    <div class="card extra-card" style="display:none;">
-                        <img src="photos/DirectX.svg" alt="DirectX">
-                        <p><strong>DirectX</strong></p>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Modal for Custom Engine -->
-        <div id="ModalCustomEngine" class="w3-modal" onclick="closeModal(event, 'ModalCustomEngine')">
-            <div class="w3-modal-content w3-animate-opacity w3-card-4" style="max-width: 90%; width: 1400px; margin:auto;">
-                <span class="w3-button w3-display-topright" onclick="closeModal(event, 'ModalCustomEngine')">&times;</span>
-                <h2>Custom Engine</h2>
-                <h3>Overview</h3>
-                <p>
-                    This project is a custom-built game engine developed in C++ from scratch. It was created as part of my Programming 4 course
-
-                    <h3>View the source code in Github: </h3>
-
-                    <div class="w3-section modal-icons">
-                        <a href="https://github.com/GonaGui/GP1-DualRasterizer" title="GitHub" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github w3-hover-opacity"></i>
-                        </a>
-                    </div>
-
-                    <h3>Some of the features</h3>
-                    <ul>
-                        <li>Game Component System (ECS) architecture</li>
-                        <li>Basic physics and collision detection</li>
-                        <li>Rendering pipeline with support for 2D sprites</li>
-                        <li>Input and event system</li>
-                        <li>Scene management and serialization</li>
-                    </ul>
-
-                    <h3>Technical Details</h3>
-                    <ul>
-                        <li>Implemented in modern C++ with modular subsystems</li>
-                        <li>Uses SDL for graphics backend</li>
-                        <li>Resource management system for textures, meshes, and audio</li>
-                    </ul>
-
-                    <!-- <h3>Challenges & Solutions</h3>
-                  <ul>
-                      <li>Challenge: Hold notes going out of sync → Solution: After many attempts we realized that the best way to prevent this was to add to the beat-synchronization system a new node to read ahead an extra 10 seconds to look for an hold notes pair</li>
-                  </ul>
-                -->
-
-                    <h3>Outcome</h3>
-                <p> While not production-ready, this project demonstrates a working foundation of a custom game engine. It gave me hands-on experience with the challenges of low-level engine development, resource management, and real-time performance considerations.</p>
-
-                <h3>Tech Stack</h3>
-                <div class="card-container" id="techStackContainer">
-
-                    <!-- Github -->
-                    <div class="card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Github">
-                        <p><strong>Github</strong></p>
-                    </div>
-
-                    <!-- Visual Studio -->
-                    <div class="card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio">
-                        <p><strong></strong>Visual Studio</p>
-                    </div>
-
-                    <!-- SDL -->
-                    <div class="card extra-card" style="display:none;">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sdl/sdl-plain.svg" alt="SDL">
-                        <p><strong>SDL</strong></p>
                     </div>
 
                 </div>
